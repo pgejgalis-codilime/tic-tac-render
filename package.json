@@ -1,0 +1,16 @@
+{
+  "name": "tic-tac-render",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lerna-bootstrap":  "lerna bootstrap",
+    "lerna-clean":  "lerna clean"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}

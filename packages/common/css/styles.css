@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+}
+
+.game-board {
+    display: grid;
+    justify-content: center;
+}
+
+.square {
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
