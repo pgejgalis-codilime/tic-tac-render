@@ -5,6 +5,7 @@ h1 {
 .game-board {
     display: grid;
     justify-content: center;
+    user-select: none;
 }
 
 .square {

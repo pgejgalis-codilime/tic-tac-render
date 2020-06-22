@@ -6,30 +6,32 @@ import {useLocalStore, useObserver} from "mobx-react-lite";
 
 
 export const GameBoardMobX: FunctionComponent = () => {
-  const store = useLocalStore(() => ({
-    ...createGameState(),  // nextPlayer: 'O',
-                           // squares: [ {index,value}... ],
-    setPlayerChoice: action((clickedSquare: SquareItem) => {
-      clickedSquare.value = store.nextPlayer;
+    const store = useLocalStore(() => ({
+        ...createGameState(),  // nextPlayer: 'O',
+                               // squares: [ {index,value}... ],
+        onSquareClick: action((clickedSquare: SquareItem) => {
+            console.log('-------- onSquareClick --------')
 
-      // IMMUTABLE
-      // store.squares = store.squares.map(square => square === clickedSquare ? {...square, value: store.nextPlayer} : square)
+            // MUTABLE
+            clickedSquare.value = store.nextPlayer;
 
-      // MUTABLE
-      store.nextPlayer = store.nextPlayer === 'O' ? 'X' : 'O'
-    })
-  }));
+            // IMMUTABLE
+            // store.squares = store.squares.map(square => square === clickedSquare ? {...square, value: store.nextPlayer} : square)
 
-  return useObserver(() => <section>
-    <h1>Tic Tac React / useState</h1>
+            store.nextPlayer = store.nextPlayer === 'O' ? 'X' : 'O'
+        })
+    }));
 
-    <div className="game-board"
-         style={{
-           gridTemplateColumns: `repeat(${BOARD_SIZE}, 40px)`,
-           gridTemplateRows: `repeat(${BOARD_SIZE}, 40px)`
-         }}>
-      {store.squares.map(square => <Square key={square.index} onClick={store.setPlayerChoice} item={square}/>)}
-    </div>
+    return useObserver(() => <section>
+        <h1>Tic Tac React / useState</h1>
 
-  </section>)
+        <div className="game-board"
+             style={{
+                 gridTemplateColumns: `repeat(${BOARD_SIZE}, 40px)`,
+                 gridTemplateRows: `repeat(${BOARD_SIZE}, 40px)`
+             }}>
+            {store.squares.map(square => <Square key={square.index} onClick={store.onSquareClick} item={square}/>)}
+        </div>
+
+    </section>)
 }
