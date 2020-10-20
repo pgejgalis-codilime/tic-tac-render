@@ -1,5 +1,6 @@
 h1 {
     text-align: center;
+    color: #444;
 }
 
 .game-board {
@@ -9,7 +10,10 @@ h1 {
 }
 
 .square {
-    border: 1px solid black;
+    color: #807F7C;
+    border: 1px solid #A3ED00;
+    margin-left: -1px;
+    margin-top: -1px;
     cursor: pointer;
     display: flex;
     justify-content: center;

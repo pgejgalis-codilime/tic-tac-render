@@ -7,8 +7,8 @@ export default Vue.extend({
     item: Object as () => SquareItem
   },
 
-  render: function (createElement) {
-    console.log('Render', this.item.index)
+  render (createElement) {
+    console.log('[Render]', this.item.index)
     return createElement('div', {
       staticClass: 'square',
       on: {

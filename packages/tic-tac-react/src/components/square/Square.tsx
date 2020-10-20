@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo } from 'react';
+import React, { FunctionComponent } from 'react';
 
 export type SquareItem = { index: string, value: string };
 
@@ -7,10 +7,10 @@ type Props = {
   item: SquareItem;
 }
 
-export const Square: FunctionComponent<Props> = memo(({onClick, item}) => {
-  const emitOnClick = ()=> {
+export const Square: FunctionComponent<Props> = ({ onClick, item }) => {
+  const emitOnClick = () => {
     onClick(item);
   };
-  console.log('Render', item.index);
-  return <div className="square" onClick={emitOnClick}>{item.value}</div>
-})
+  console.log('[Render]', item.index);
+  return <div className="square" onClick={emitOnClick}>{item.value}</div>;
+};

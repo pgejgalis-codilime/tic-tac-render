@@ -9,10 +9,12 @@ export var BOARD_SIZE = 3;
 export function createGameState() {
     return {
         nextPlayer: 'O',
-        squares: __spreadArrays(Array(BOARD_SIZE)).map(function (_, rowIndex) { return __spreadArrays(Array(BOARD_SIZE)).map(function (_, colIndex) { return ({
-            index: createSquareIndex(rowIndex, colIndex),
-            value: ''
-        }); }); }).flat()
+        squares: __spreadArrays(Array(BOARD_SIZE)).map(function (_, rowIndex) {
+            return __spreadArrays(Array(BOARD_SIZE)).map(function (_, colIndex) { return ({
+                index: createSquareIndex(rowIndex, colIndex),
+                value: '',
+            }); });
+        }).flat()
     };
 }
 export function createSquareIndex(rowIndex, squareIndex) {

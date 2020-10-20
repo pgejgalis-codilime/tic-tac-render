@@ -37,15 +37,22 @@ export default Vue.extend({
       console.log('-------- onSquareClick --------')
 
       // MUTABLE
-      // clickedSquare.value = this.gameState.nextPlayer;
+      clickedSquare.value = this.gameState.nextPlayer
 
       // IMMUTABLE
-      this.gameState.squares = this.gameState.squares.map(square => square === clickedSquare ? { ...square, value: this.gameState.nextPlayer } : square)
+      // this.gameState.squares = this.gameState.squares.map(square => square === clickedSquare ? { ...square, value: this.gameState.nextPlayer } : square)
 
       this.gameState.nextPlayer = this.gameState.nextPlayer === 'O' ? 'X' : 'O'
     }
+  },
+  created () {
+    console.log('[Render] GameBoard')
+  },
+
+  beforeUpdate () {
+    console.log('[Render] GameBoard')
   }
 })
 
 </script>
-<style src="common/css/styles.css"/>
+<style src="common/css/styles.css" />

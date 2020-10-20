@@ -1,6 +1,6 @@
 import React from 'react';
 import 'common/css/styles.css';
-import { GameBoardUseState } from '../game-board-use-state/GameBoardUseSstate';
+import { GameBoardUseState } from '../game-board-use-state/GameBoardUseState';
 
 function App() {
   return (

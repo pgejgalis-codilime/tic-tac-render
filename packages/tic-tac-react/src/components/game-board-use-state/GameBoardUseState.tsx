@@ -7,12 +7,17 @@ export const GameBoardUseState: FunctionComponent = () => {
   const [gameState, setGameState] = useState(createGameState());
 
   const onSquareClick = useCallback((clickedSquare: SquareItem) => {
-    console.log('-------- onSquareClick --------')
+    console.log('-------- onSquareClick --------');
     setGameState(gameState => ({
-      squares: gameState.squares.map(square => square === clickedSquare ? {...square, value: gameState.nextPlayer} : square ),
-      nextPlayer: gameState.nextPlayer === 'O' ?  'X' : 'O'
+      squares: gameState.squares.map(square => square === clickedSquare ? {
+        ...square,
+        value: gameState.nextPlayer,
+      } : square),
+      nextPlayer: gameState.nextPlayer === 'O' ? 'X' : 'O',
     }));
-  },[setGameState]);
+  }, [setGameState]);
+
+  console.log('[Render] GameBoard');
 
   return <section>
     <h1>Tic Tac React / useState</h1>
@@ -20,10 +25,10 @@ export const GameBoardUseState: FunctionComponent = () => {
     <div className="game-board"
          style={{
            gridTemplateColumns: `repeat(${BOARD_SIZE}, 40px)`,
-           gridTemplateRows: `repeat(${BOARD_SIZE}, 40px)`
+           gridTemplateRows: `repeat(${BOARD_SIZE}, 40px)`,
          }}>
       {gameState.squares.map(square => <Square key={square.index} onClick={onSquareClick} item={square} />)}
     </div>
 
-  </section>
-}
+  </section>;
+};

@@ -9,10 +9,12 @@ export type GameState = {
 export function createGameState(): GameState {
   return {
     nextPlayer: 'O',
-    squares: [...Array(BOARD_SIZE)].map((_, rowIndex) => [...Array(BOARD_SIZE)].map((_, colIndex) => ({
-      index: createSquareIndex(rowIndex, colIndex),
-      value: ''
-    }))).flat()
+    squares: [...Array(BOARD_SIZE)].map((_, rowIndex) => {
+      return [...Array(BOARD_SIZE)].map((_, colIndex) => ({
+        index: createSquareIndex(rowIndex, colIndex),
+        value: '',
+      }));
+    }).flat()
   }
 }
 

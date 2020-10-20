@@ -5,7 +5,7 @@ import { GameBoardMobX } from '../game-board-mobx/GameBoardMobX';
 function App() {
   return (
     <div className="App">
-      <GameBoardMobX/>
+      <GameBoardMobX />
     </div>
   );
 }

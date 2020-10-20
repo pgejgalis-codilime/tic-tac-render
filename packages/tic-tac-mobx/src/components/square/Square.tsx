@@ -1,5 +1,5 @@
-import React, {FunctionComponent} from 'react';
-import {useObserver} from "mobx-react-lite";
+import React from 'react';
+import { observer } from 'mobx-react-lite';
 
 export type SquareItem = { index: string, value: string };
 
@@ -8,10 +8,10 @@ type Props = {
   item: SquareItem;
 }
 
-export const Square: FunctionComponent<Props> = ({onClick, item}) => {
-  const emitOnClick = ()=> {
+export const Square = observer<Props>(({ onClick, item }) => {
+  const emitOnClick = () => {
     onClick(item);
   };
-  console.log('Render', item.index);
-  return useObserver(()=><div className="square" onClick={emitOnClick}>{item.value}</div>)
-}
+  console.log('[Render]', item.index);
+  return <div className="square" onClick={emitOnClick}>{item.value}</div>;
+});
