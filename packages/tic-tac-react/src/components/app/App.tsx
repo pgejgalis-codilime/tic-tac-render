@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { HashRouter, Link, Route, Switch } from 'react-router-dom';
 import 'common/css/styles.css';
 import { GameBoardUseState } from '../game-board-use-state/GameBoardUseState';
 import { GameBoardUseReducer } from '../game-board-use-reducer/GameBoardUseReducer';
@@ -7,7 +7,7 @@ import { GameBoardUseReducer } from '../game-board-use-reducer/GameBoardUseReduc
 function App() {
   return (
     <div className="App">
-      <Router>
+      <HashRouter>
         <Switch>
           <Route path="/use-state">
             <GameBoardUseState />
@@ -22,7 +22,7 @@ function App() {
             </ul>
           </Route>
         </Switch>
-      </Router>
+      </HashRouter>
     </div>
   );
 }
