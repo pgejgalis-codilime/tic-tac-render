@@ -1,6 +1,7 @@
 <template>
   <section>
     <h1>Tic Tac Vue</h1>
+    <p>Update Level: {{UPDATE_LEVEL}}</p>
 
     <div class="game-board"
          :style="{
@@ -20,37 +21,70 @@
 <script lang="ts">
 import Vue from 'vue'
 import Square from '@/components/Square.vue'
-import { BOARD_SIZE, createGameState, SquareItem } from 'common'
+import { BOARD_SIZE, UPDATE_LEVEL, log, SquareItem, INITIAL_STATE } from 'common'
 
 export default Vue.extend({
   components: {
     Square
   },
+
   data () {
     return {
       BOARD_SIZE,
-      gameState: createGameState()
+      UPDATE_LEVEL,
+      gameState: INITIAL_STATE
     }
   },
+
   methods: {
     onSquareClick (clickedSquare: SquareItem) {
-      console.log('-------- onSquareClick --------')
+      log('-------- onSquareClick --------')
 
-      // MUTABLE
-      clickedSquare.value = this.gameState.nextPlayer
+      switch (UPDATE_LEVEL) {
+        case 'VALUE': {
+          clickedSquare.value = this.gameState.nextPlayer
+          this.gameState.nextPlayer = this.gameState.nextPlayer === 'O' ? 'X' : 'O'
+          break
+        }
 
-      // IMMUTABLE
-      // this.gameState.squares = this.gameState.squares.map(square => square === clickedSquare ? { ...square, value: this.gameState.nextPlayer } : square)
+        case 'ITEM': {
+          const clickedSquareArrayIndex = this.gameState.squares.findIndex(square => square.index === clickedSquare.index)
+          this.gameState.squares.splice(clickedSquareArrayIndex, 1, {
+            index: clickedSquare.index,
+            value: this.gameState.nextPlayer
+          })
+          this.gameState.nextPlayer = this.gameState.nextPlayer === 'O' ? 'X' : 'O'
+          break
+        }
 
-      this.gameState.nextPlayer = this.gameState.nextPlayer === 'O' ? 'X' : 'O'
+        case 'ARRAY': {
+          this.gameState.squares = this.gameState.squares.map(square => square === clickedSquare ? {
+            ...square,
+            value: this.gameState.nextPlayer
+          } : square)
+          this.gameState.nextPlayer = this.gameState.nextPlayer === 'O' ? 'X' : 'O'
+          break
+        }
+
+        case 'GAME_STATE': {
+          this.gameState = {
+            squares: this.gameState.squares.map(square => square === clickedSquare ? {
+              ...square,
+              value: this.gameState.nextPlayer
+            } : square),
+            nextPlayer: this.gameState.nextPlayer === 'O' ? 'X' : 'O'
+          }
+          break
+        }
+      }
     }
   },
   created () {
-    console.log('[Render] GameBoard')
+    log('[Render] GameBoard')
   },
 
   beforeUpdate () {
-    console.log('[Render] GameBoard')
+    log('[Render] GameBoard')
   }
 })
 

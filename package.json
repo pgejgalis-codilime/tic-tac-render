@@ -6,11 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lerna-bootstrap": "lerna bootstrap",
-    "lerna-clean": "lerna clean"
+    "lerna-clean": "lerna clean",
+    "build": "lerna run build",
+    "serve-built": "concurrently \"npm:serve-built-*\"",
+    "serve-built-react": "npx http-server -o -p 8090 ./packages/tic-tac-react/build/",
+    "serve-built-vue": "npx http-server -o -p 8091 ./packages/tic-tac-vue/dist/",
+    "start-dev": "concurrently \"npm:start-dev-*\"",
+    "start-dev-react": "cd ./packages/tic-tac-react && npm run start",
+    "start-dev-vue": "cd ./packages/tic-tac-vue && npm run serve"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "lerna": "^3.22.1"
+  },
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "http-server": "^0.12.3"
   }
 }

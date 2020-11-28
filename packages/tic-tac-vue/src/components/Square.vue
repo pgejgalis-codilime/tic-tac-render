@@ -1,6 +1,6 @@
 <script lang="ts">
 import Vue from 'vue'
-import { SquareItem } from 'common'
+import { log, SquareItem } from 'common'
 
 export default Vue.extend({
   props: {
@@ -8,7 +8,7 @@ export default Vue.extend({
   },
 
   render (createElement) {
-    console.log('[Render]', this.item.index)
+    log('[Render]', this.item.index)
     return createElement('div', {
       staticClass: 'square',
       on: {

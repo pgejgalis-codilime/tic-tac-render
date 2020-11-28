@@ -6,7 +6,10 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 export var BOARD_SIZE = 3;
-export function createGameState() {
+export var UPDATE_LEVEL = 'VALUE';
+export var USE_MEMO_WRAPPER = true;
+export var INITIAL_STATE = createGameState();
+function createGameState() {
     return {
         nextPlayer: 'O',
         squares: __spreadArrays(Array(BOARD_SIZE)).map(function (_, rowIndex) {
@@ -19,5 +22,14 @@ export function createGameState() {
 }
 export function createSquareIndex(rowIndex, squareIndex) {
     return rowIndex + "x" + squareIndex;
+}
+export function log() {
+    var args = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        args[_i] = arguments[_i];
+    }
+    if (process.env.NODE_ENV !== 'production') {
+        console.log.apply(console, args);
+    }
 }
 //# sourceMappingURL=index.js.map

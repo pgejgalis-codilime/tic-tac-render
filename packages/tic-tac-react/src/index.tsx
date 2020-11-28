@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/app/App';
 import * as serviceWorker from './serviceWorker';
+import 'mobx-react-lite/batchingForReactDom';
+import { configure as mobxConfigure } from 'mobx';
+
+mobxConfigure({
+  enforceActions: 'always',
+});
 
 ReactDOM.render(
     <App />,
