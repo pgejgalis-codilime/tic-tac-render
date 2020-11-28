@@ -25,7 +25,7 @@ export function log(...args: any[]) {
   }
 }
 
-type UpdateLevel = 'VALUE' | 'ITEM' | 'ARRAY' | 'GAME_STATE';
+type UpdateLevel = 'VALUE' | 'ITEM' | 'ARRAY' | 'STATE';
 export type SquareItem = { index: string, value: string };
 export type GameState = {
   nextPlayer: 'O' | 'X';

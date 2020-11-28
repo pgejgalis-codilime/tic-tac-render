@@ -66,7 +66,7 @@ export default Vue.extend({
           break
         }
 
-        case 'GAME_STATE': {
+        case 'STATE': {
           this.gameState = {
             squares: this.gameState.squares.map(square => square === clickedSquare ? {
               ...square,
@@ -80,6 +80,7 @@ export default Vue.extend({
     }
   },
   created () {
+    document.title = 'Vue'
     log('[Render] GameBoard')
   },
 

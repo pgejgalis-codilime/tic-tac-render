@@ -21,6 +21,8 @@ const gameBoardReducer = (gameState: GameState, action: Action): GameState => {
 
 
 export const GameBoardUseReducer: FunctionComponent = () => {
+  document.title = 'useReducer';
+
   const [gameState, dispatch] = useReducer(gameBoardReducer, INITIAL_STATE);
 
   const onSquareClick = useCallback((clickedSquare: SquareItem) => {

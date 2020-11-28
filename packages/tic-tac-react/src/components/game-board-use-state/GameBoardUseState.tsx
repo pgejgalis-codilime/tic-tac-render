@@ -4,6 +4,8 @@ import { BOARD_SIZE, INITIAL_STATE, log, USE_MEMO_WRAPPER } from 'common';
 
 
 export const GameBoardUseState: FunctionComponent = () => {
+  document.title = 'useState';
+
   const [gameState, setGameState] = useState(INITIAL_STATE);
 
   const onSquareClick = useCallback((clickedSquare: SquareItem) => {

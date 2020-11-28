@@ -6,6 +6,8 @@ import { observer, useLocalStore } from 'mobx-react-lite';
 
 
 export const GameBoardMobX: FunctionComponent = observer(() => {
+  document.title = 'MobX';
+
   const store = useLocalStore(() => ({
     gameState: INITIAL_STATE,
     onSquareClick: action((clickedSquare: SquareItem) => {
@@ -37,7 +39,7 @@ export const GameBoardMobX: FunctionComponent = observer(() => {
           break;
         }
 
-        case 'GAME_STATE': {
+        case 'STATE': {
           store.gameState = {
             squares: store.gameState.squares.map(square => square === clickedSquare ? {
               ...square,
