@@ -34,7 +34,7 @@ export const GameBoardUseReducer: FunctionComponent = () => {
 
   return <section>
     <h1>Tic Tac React / useReducer</h1>
-    <p>Update Level: GAME_STATE</p>
+    <p>Update Level: STATE</p>
     <p>memo(Square): {USE_MEMO_WRAPPER ? '✔️' : '❌'}</p>
 
     <div className="game-board"
