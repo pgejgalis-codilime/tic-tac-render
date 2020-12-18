@@ -8,6 +8,19 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 export var BOARD_SIZE = 3;
 export var UPDATE_LEVEL = 'VALUE';
 export var USE_MEMO_WRAPPER = true;
+/**
+ *   {
+ *      nextPlayer: 'O',
+ *      squares: [
+ *        { index: '0x0', value: '' },
+ *        { index: '0x1', value: '' },
+ *        { index: '0x2', value: '' },
+ *        { index: '1x0', value: '' },
+ *        …
+ *        { index: '2x2', value: '' },
+ *    ],
+ *   };
+ */
 export var INITIAL_STATE = createGameState();
 function createGameState() {
     return {
