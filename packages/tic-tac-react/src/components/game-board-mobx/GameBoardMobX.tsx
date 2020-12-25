@@ -1,8 +1,8 @@
-import { action } from 'mobx';
 import React, { FunctionComponent } from 'react';
+import { action } from 'mobx';
+import { observer, useLocalStore } from 'mobx-react-lite';
 import { BOARD_SIZE, INITIAL_STATE, log, UPDATE_LEVEL } from 'common';
 import { Square, SquareItem } from './Square';
-import { observer, useLocalStore } from 'mobx-react-lite';
 
 
 export const GameBoardMobX: FunctionComponent = observer(() => {
@@ -21,7 +21,8 @@ export const GameBoardMobX: FunctionComponent = observer(() => {
         }
 
         case 'ITEM': {
-          const clickedSquareArrayIndex = store.gameState.squares.findIndex(square => square.index === clickedSquare.index);
+          const clickedSquareArrayIndex = store.gameState.squares
+            .findIndex(square => square.index === clickedSquare.index);
           store.gameState.squares.splice(clickedSquareArrayIndex, 1, {
             index: clickedSquare.index,
             value: store.gameState.nextPlayer,
@@ -66,7 +67,11 @@ export const GameBoardMobX: FunctionComponent = observer(() => {
            gridTemplateColumns: `repeat(${BOARD_SIZE}, 40px)`,
            gridTemplateRows: `repeat(${BOARD_SIZE}, 40px)`,
          }}>
-      {gameState.squares.map(square => <Square key={square.index} onClick={store.onSquareClick} item={square} />)}
+      {gameState.squares.map(square => <Square
+        key={square.index}
+        onClick={store.onSquareClick}
+        item={square}
+      />)}
     </div>
 
   </section>;

@@ -4,11 +4,12 @@ import { BOARD_SIZE, GameState, INITIAL_STATE, log, USE_MEMO_WRAPPER } from 'com
 
 type Action = { type: 'CLICK_SQUARE', payload: SquareItem };
 
-const gameBoardReducer = (gameState: GameState, action: Action): GameState => {
+const gameStateReducer = (gameState: GameState, action: Action): GameState => {
   switch (action.type) {
     case 'CLICK_SQUARE':
+      const clickedSquare = action.payload;
       return {
-        squares: gameState.squares.map(square => square === action.payload ? {
+        squares: gameState.squares.map(square => square === clickedSquare ? {
           ...square,
           value: gameState.nextPlayer,
         } : square),
@@ -18,12 +19,10 @@ const gameBoardReducer = (gameState: GameState, action: Action): GameState => {
   return gameState;
 };
 
-
-
 export const GameBoardUseReducer: FunctionComponent = () => {
   document.title = 'useReducer';
 
-  const [gameState, dispatch] = useReducer(gameBoardReducer, INITIAL_STATE);
+  const [gameState, dispatch] = useReducer(gameStateReducer, INITIAL_STATE);
 
   const onSquareClick = useCallback((clickedSquare: SquareItem) => {
     log('-------- onSquareClick --------');
@@ -42,7 +41,11 @@ export const GameBoardUseReducer: FunctionComponent = () => {
            gridTemplateColumns: `repeat(${BOARD_SIZE}, 40px)`,
            gridTemplateRows: `repeat(${BOARD_SIZE}, 40px)`,
          }}>
-      {gameState.squares.map(square => <Square key={square.index} onClick={onSquareClick} item={square} />)}
+      {gameState.squares.map(square => <Square
+        key={square.index}
+        onClick={onSquareClick}
+        item={square}
+      />)}
     </div>
 
   </section>;

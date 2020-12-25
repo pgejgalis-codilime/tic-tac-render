@@ -13,7 +13,6 @@ export default defineComponent({
       class: 'square',
       onClick: () => {
         this.$emit('square-click', this.item);
-
       },
     }, this.item?.value);
   },

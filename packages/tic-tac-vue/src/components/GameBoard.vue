@@ -48,7 +48,8 @@ export default Vue.extend({
         }
 
         case 'ITEM': {
-          const clickedSquareArrayIndex = this.gameState.squares.findIndex(square => square.index === clickedSquare.index)
+          const clickedSquareArrayIndex = this.gameState.squares
+            .findIndex(square => square.index === clickedSquare.index)
           this.gameState.squares.splice(clickedSquareArrayIndex, 1, {
             index: clickedSquare.index,
             value: this.gameState.nextPlayer

@@ -33,7 +33,11 @@ export const GameBoardUseState: FunctionComponent = () => {
            gridTemplateColumns: `repeat(${BOARD_SIZE}, 40px)`,
            gridTemplateRows: `repeat(${BOARD_SIZE}, 40px)`,
          }}>
-      {gameState.squares.map(square => <Square key={square.index} onClick={onSquareClick} item={square} />)}
+      {gameState.squares.map(square => <Square
+        key={square.index}
+        onClick={onSquareClick}
+        item={square}
+      />)}
     </div>
 
   </section>;
