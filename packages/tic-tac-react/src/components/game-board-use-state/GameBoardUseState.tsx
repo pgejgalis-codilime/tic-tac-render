@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useCallback, useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { Square, SquareItem } from '../square/Square';
 import { BOARD_SIZE, INITIAL_STATE, log, USE_MEMO_WRAPPER } from 'common';
 
@@ -8,7 +8,7 @@ export const GameBoardUseState: FunctionComponent = () => {
 
   const [gameState, setGameState] = useState(INITIAL_STATE);
 
-  const onSquareClick = useCallback((clickedSquare: SquareItem) => {
+  const onSquareClick = (clickedSquare: SquareItem) => {
     log('-------- onSquareClick --------');
     setGameState(gameState => {
       return {
@@ -19,7 +19,7 @@ export const GameBoardUseState: FunctionComponent = () => {
         nextPlayer: gameState.nextPlayer === 'O' ? 'X' : 'O',
       };
     });
-  }, [setGameState]);
+  };
 
   log('[Render] GameBoard');
 
