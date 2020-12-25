@@ -1,6 +1,6 @@
 export const BOARD_SIZE = 3;
-export const UPDATE_LEVEL: UpdateLevel = 'VALUE';
-export const USE_MEMO_WRAPPER = true;
+export const UPDATE_LEVEL: UpdateLevel = 'STATE';
+export const USE_MEMO_WRAPPER = false;
 
 /**
  *   {

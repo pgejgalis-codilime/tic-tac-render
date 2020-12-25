@@ -6,8 +6,8 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 export var BOARD_SIZE = 3;
-export var UPDATE_LEVEL = 'VALUE';
-export var USE_MEMO_WRAPPER = true;
+export var UPDATE_LEVEL = 'STATE';
+export var USE_MEMO_WRAPPER = false;
 /**
  *   {
  *      nextPlayer: 'O',
