@@ -11,10 +11,12 @@
     "serve-built": "concurrently \"npm:serve-built-*\"",
     "serve-built-react": "npx http-server -o -p 8090 ./packages/tic-tac-react/build/",
     "serve-built-vue": "npx http-server -o -p 8091 ./packages/tic-tac-vue/dist/",
+    "serve-built-vue3": "npx http-server -o -p 8092 ./packages/tic-tac-vue3/dist/",
     "start-dev": "concurrently \"npm:start-dev-*\"",
     "start-dev-common": "cd ./packages/common && npm run tsc-watch",
     "start-dev-react": "cd ./packages/tic-tac-react && npm run start",
-    "start-dev-vue": "cd ./packages/tic-tac-vue && npm run serve"
+    "start-dev-vue": "cd ./packages/tic-tac-vue && npm run serve",
+    "start-dev-vue3": "cd ./packages/tic-tac-vue3 && npm run serve"
   },
   "author": "",
   "license": "MIT",

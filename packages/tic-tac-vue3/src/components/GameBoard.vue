@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>Tic Tac Vue</h1>
+    <h1>Tic Tac Vue3</h1>
     <p>Update Level: {{UPDATE_LEVEL}}</p>
 
     <div class="game-board"
@@ -19,11 +19,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import {defineComponent} from 'vue'
 import Square from '@/components/Square.vue'
 import { BOARD_SIZE, UPDATE_LEVEL, log, SquareItem, INITIAL_STATE } from 'common'
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     Square
   },
@@ -80,7 +80,7 @@ export default Vue.extend({
     }
   },
   created () {
-    document.title = 'Vue2'
+    document.title = 'Vue3'
     log('[Render] GameBoard')
   },
 
