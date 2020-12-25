@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>Tic Tac Vue</h1>
+    <h1>Tic Tac Vue2</h1>
     <p>Update Level: {{UPDATE_LEVEL}}</p>
 
     <div class="game-board"
